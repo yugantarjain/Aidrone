@@ -14,9 +14,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let xy = CLLocationCoordinate2D(latitude: 9, longitude: 76)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let xy = CLLocationCoordinate2D(latitude: 10, longitude: 77)
+        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
         Map.region = MKCoordinateRegion(center: xy, span: span)
+        let ann = MKPointAnnotation.init()
+        ann.coordinate.latitude = 10
+        ann.coordinate.longitude = 77
+        Map.addAnnotation(ann)
     }
     @IBOutlet weak var Map: MKMapView!
     
