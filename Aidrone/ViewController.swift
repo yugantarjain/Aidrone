@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
 //        Map.region = MKCoordinateRegion(center: xy, span: span)
         ref = Database.database().reference()
         ref.child("People").observe(.value) { (snapshot) in
@@ -38,7 +39,8 @@ class ViewController: UIViewController {
         print(lat, long)
         
         let xy = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        Map.region = MKCoordinateRegion(center: xy, span: span)
+//        Map.region = MKCoordinateRegion(center: xy, span: span)
+        Map.setCenter(xy, animated: true)
         
         ann.coordinate.latitude = lat
         ann.coordinate.longitude = long
