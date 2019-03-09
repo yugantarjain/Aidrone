@@ -13,13 +13,14 @@ import FirebaseDatabase
 class ViewController: UIViewController {
     
     let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-    let ref = Database.database().reference()
+//    let ref = Database.database().reference()
     let ann = MKPointAnnotation.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        Map.region = MKCoordinateRegion(center: xy, span: span)
+        ref = Database.database().reference()
         ref.child("People").observe(.value) { (snapshot) in
             for data in snapshot.children.allObjects as! [DataSnapshot]
             {
