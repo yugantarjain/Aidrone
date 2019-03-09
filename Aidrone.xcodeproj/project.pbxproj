@@ -12,6 +12,7 @@
 		53FE33712234590200CB86F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FE336F2234590200CB86F0 /* Main.storyboard */; };
 		53FE33732234590300CB86F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33722234590300CB86F0 /* Assets.xcassets */; };
 		53FE33762234590300CB86F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33742234590300CB86F0 /* LaunchScreen.storyboard */; };
+		53FE337E2234656100CB86F0 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		53FE33722234590300CB86F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53FE33752234590300CB86F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53FE33772234590300CB86F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				53FE33722234590300CB86F0 /* Assets.xcassets */,
 				53FE33742234590300CB86F0 /* LaunchScreen.storyboard */,
 				53FE33772234590300CB86F0 /* Info.plist */,
+				53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */,
 			);
 			path = Aidrone;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			files = (
 				53FE33762234590300CB86F0 /* LaunchScreen.storyboard in Resources */,
 				53FE33732234590300CB86F0 /* Assets.xcassets in Resources */,
+				53FE337E2234656100CB86F0 /* GoogleService-Info-2.plist in Resources */,
 				53FE33712234590200CB86F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
