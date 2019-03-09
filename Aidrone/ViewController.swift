@@ -15,23 +15,53 @@ class ViewController: UIViewController {
     let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
 //    let ref = Database.database().reference()
     let ann = MKPointAnnotation.init()
+//    var annView = MKAnnotationView.init()
+    var annotations = [MKAnnotation]()
+    var i = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
 //        Map.region = MKCoordinateRegion(center: xy, span: span)
-        ref = Database.database().reference()
-        ref.child("People").observe(.value) { (snapshot) in
-            for data in snapshot.children.allObjects as! [DataSnapshot]
-            {
-                let a = data.value as? [String: AnyObject]
-                let lati = a?["Lat"] as! Double
-                let longi = a?["Long"] as! Double
-                self.updateCentre(lat: lati, long: longi)
-            }
-        }
+//        ref = Database.database().reference()
+//        ref.child("People").observe(.value) { (snapshot) in
+//            for data in snapshot.children.allObjects as! [DataSnapshot]
+//            {
+//                let a = data.value as? [String: AnyObject]
+//                let lati = a?["Lat"] as! Double
+//                let longi = a?["Long"] as! Double
+////                self.updateCentre(lat: lati, long: longi)
+//                let xy = CLLocationCoordinate2D(latitude: lati, longitude: longi)
+//                self.ann.coordinate.latitude = lati
+//                self.ann.coordinate.longitude = longi
+//                self.Map.addAnnotation(self.ann)
+//
+//
+//            }
+//        }
+        
+        var ann1 = MKPointAnnotation.init()
+        ann1.coordinate.latitude = 9
+        ann1.coordinate.longitude = 26
+        annotations.append(ann1)
+
+        
+//        let ann2 = MKPointAnnotation.init()
+        ann1.coordinate.latitude = 11
+        ann1.coordinate.longitude = 24
+        
+        annotations.append(ann1)
+        
+//        Map.addAnnotation(ann1)
+//        Map.addAnnotation(ann2)
+        Map.addAnnotations(annotations)
+        
+        
+        
+        
     }
+    
     @IBOutlet weak var Map: MKMapView!
     
     func updateCentre(lat: Double, long: Double)
@@ -44,8 +74,11 @@ class ViewController: UIViewController {
         
         ann.coordinate.latitude = lat
         ann.coordinate.longitude = long
-        Map.addAnnotation(ann)
-        
+        annotations.append(ann)
+        for a in annotations
+        {
+            Map.addAnnotation(a)
+        }
         print(ann.coordinate)
     }
 }
