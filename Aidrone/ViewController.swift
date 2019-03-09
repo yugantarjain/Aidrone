@@ -8,15 +8,17 @@
 
 import UIKit
 import MapKit
+import FirebaseDatabase
 
 class ViewController: UIViewController {
+    
+    let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+    let ref = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let xy = CLLocationCoordinate2D(latitude: 10, longitude: 77)
-        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-        Map.region = MKCoordinateRegion(center: xy, span: span)
+//        Map.region = MKCoordinateRegion(center: xy, span: span)
         let ann = MKPointAnnotation.init()
         ann.coordinate.latitude = 10
         ann.coordinate.longitude = 77
@@ -24,6 +26,10 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var Map: MKMapView!
     
-
+    func updateCentre(lat: Double, long: Double)
+    {
+        let xy = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        Map.region = MKCoordinateRegion(center: xy, span: span)
+    }
 }
 
