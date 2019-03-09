@@ -35,12 +35,16 @@ class ViewController: UIViewController {
     
     func updateCentre(lat: Double, long: Double)
     {
+        print(lat, long)
+        
         let xy = CLLocationCoordinate2D(latitude: lat, longitude: long)
         Map.region = MKCoordinateRegion(center: xy, span: span)
         
         ann.coordinate.latitude = lat
         ann.coordinate.longitude = long
         Map.addAnnotation(ann)
+        
+        print(ann.coordinate)
     }
 }
 
