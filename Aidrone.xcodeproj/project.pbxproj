@@ -12,7 +12,7 @@
 		53FE33712234590200CB86F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FE336F2234590200CB86F0 /* Main.storyboard */; };
 		53FE33732234590300CB86F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33722234590300CB86F0 /* Assets.xcassets */; };
 		53FE33762234590300CB86F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33742234590300CB86F0 /* LaunchScreen.storyboard */; };
-		53FE337E2234656100CB86F0 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */; };
+		53FE337E2234656100CB86F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE337D2234656100CB86F0 /* GoogleService-Info.plist */; };
 		BDABB9AC5E8510E5AE7965BC /* Pods_Aidrone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85749BED0B707597BD71C7DB /* Pods_Aidrone.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		53FE33722234590300CB86F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53FE33752234590300CB86F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53FE33772234590300CB86F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		53FE337D2234656100CB86F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85749BED0B707597BD71C7DB /* Pods_Aidrone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aidrone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D0D53C1BAF69B2D78F0664 /* Pods-Aidrone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aidrone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone.release.xcconfig"; sourceTree = "<group>"; };
 		C32A7C7A8EC55055822AC3BF /* Pods-Aidrone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aidrone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 				53FE33722234590300CB86F0 /* Assets.xcassets */,
 				53FE33742234590300CB86F0 /* LaunchScreen.storyboard */,
 				53FE33772234590300CB86F0 /* Info.plist */,
-				53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */,
+				53FE337D2234656100CB86F0 /* GoogleService-Info.plist */,
 			);
 			path = Aidrone;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 			files = (
 				53FE33762234590300CB86F0 /* LaunchScreen.storyboard in Resources */,
 				53FE33732234590300CB86F0 /* Assets.xcassets in Resources */,
-				53FE337E2234656100CB86F0 /* GoogleService-Info-2.plist in Resources */,
+				53FE337E2234656100CB86F0 /* GoogleService-Info.plist in Resources */,
 				53FE33712234590200CB86F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,7 +359,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Aidrone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Aidrone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -375,7 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Aidrone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Aidrone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
