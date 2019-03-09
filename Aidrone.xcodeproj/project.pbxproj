@@ -13,6 +13,7 @@
 		53FE33732234590300CB86F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33722234590300CB86F0 /* Assets.xcassets */; };
 		53FE33762234590300CB86F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FE33742234590300CB86F0 /* LaunchScreen.storyboard */; };
 		53FE337E2234656100CB86F0 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */; };
+		BDABB9AC5E8510E5AE7965BC /* Pods_Aidrone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85749BED0B707597BD71C7DB /* Pods_Aidrone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		53FE33752234590300CB86F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53FE33772234590300CB86F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53FE337D2234656100CB86F0 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		85749BED0B707597BD71C7DB /* Pods_Aidrone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aidrone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D0D53C1BAF69B2D78F0664 /* Pods-Aidrone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aidrone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone.release.xcconfig"; sourceTree = "<group>"; };
+		C32A7C7A8EC55055822AC3BF /* Pods-Aidrone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aidrone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDABB9AC5E8510E5AE7965BC /* Pods_Aidrone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				53FE336A2234590200CB86F0 /* Aidrone */,
 				53FE33692234590200CB86F0 /* Products */,
+				BD1413368732CF1A46ADF5F9 /* Pods */,
+				814890CE342F376A6085C406 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = Aidrone;
 			sourceTree = "<group>";
 		};
+		814890CE342F376A6085C406 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85749BED0B707597BD71C7DB /* Pods_Aidrone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD1413368732CF1A46ADF5F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C32A7C7A8EC55055822AC3BF /* Pods-Aidrone.debug.xcconfig */,
+				91D0D53C1BAF69B2D78F0664 /* Pods-Aidrone.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53FE337A2234590300CB86F0 /* Build configuration list for PBXNativeTarget "Aidrone" */;
 			buildPhases = (
+				63A798B35F92F259346B3908 /* [CP] Check Pods Manifest.lock */,
 				53FE33642234590200CB86F0 /* Sources */,
 				53FE33652234590200CB86F0 /* Frameworks */,
 				53FE33662234590200CB86F0 /* Resources */,
+				89715533292D98C60FEDEFBF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +159,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		63A798B35F92F259346B3908 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aidrone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89715533292D98C60FEDEFBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aidrone/Pods-Aidrone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		53FE33642234590200CB86F0 /* Sources */ = {
@@ -284,15 +353,13 @@
 		};
 		53FE337B2234590300CB86F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C32A7C7A8EC55055822AC3BF /* Pods-Aidrone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Aidrone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Aidrone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -302,15 +369,13 @@
 		};
 		53FE337C2234590300CB86F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D0D53C1BAF69B2D78F0664 /* Pods-Aidrone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
 				INFOPLIST_FILE = Aidrone/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Aidrone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
