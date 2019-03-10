@@ -50,20 +50,30 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        Map.delegate = self
         
         ref = Database.database().reference()
-        ref.child("persons").observe(.value) { (snapshot) in
-            for data in snapshot.children.allObjects as! [DataSnapshot]
-            {
-                let a = data.value as? [String: AnyObject]
-                let lati = a?["Latitude"] as! Double
-                let longi = a?["Longitude"] as! Double
-                self.test(la: lati, lo: longi)
-            }
-        }
+//        ref.child("persons").observe(.value) { (snapshot) in
+//            for data in snapshot.children.allObjects as! [DataSnapshot]
+//            {
+//                let a = data.value as? [String: AnyObject]
+//                let lati = a?["Latitude"] as! Double
+//                let longi = a?["Longitude"] as! Double
+//                self.test(la: lati, lo: longi)
+//            }
+//        }
         
-        ref.child("drone").observe(.value) { (snapshot) in
+        test(la: 12.61215,lo: 74.92886)
+        test(la: 12.61119, lo: 74.92886)
+        test(la: 12.6947, lo: 74.92941)
+        test(la: 12.6088, lo: 74.9298)
+        test(la: 12.60679, lo: 74.93779)
+        test(la: 12.60348, lo: 74.9322)
+        
+        
+//        Map.delegate = self
+
+        
+        ref.child("boats").observe(.value) { (snapshot) in
             for data in snapshot.children.allObjects as! [DataSnapshot]
             {
                 let a = data.value as? [String: AnyObject]
@@ -129,18 +139,19 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let abcd = MKPointAnnotation.init()
         abcd.coordinate.latitude = la
         abcd.coordinate.longitude = lo
+        
         annotations.append(abcd)
         Map.addAnnotation(abcd)
 //        Map.setCenter(mn, animated: true)
     }
     
-    func test2(la: Double, lo: Double)
-    {
-        let mn = CLLocationCoordinate2D.init(latitude: la, longitude: lo)
-        let abcd = MKCircle.init(center: mn, radius: 20)
-        Map.addOverlay(abcd)
-        Map.setCenter(mn, animated: true)
-    }
+//    func test2(la: Double, lo: Double)
+//    {
+//        let mn = CLLocationCoordinate2D.init(latitude: la, longitude: lo)
+//        let abcd = MKCircle.init(center: mn, radius: 20)
+//        Map.addOverlay(abcd)
+//        Map.setCenter(mn, animated: true)
+//    }
     
 //    func test2(la: Double, lo: Double)
 //    {
@@ -166,7 +177,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let abcd = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "boats")
         abcd.animatesDrop = true
 //        abcd.image = UIImage(named: "dr")
-        abcd.tintColor = UIColor.blue
+//        abcd.tintColor = UIColor.blue
         abcd.pinTintColor = UIColor.blue
         return abcd
     }
