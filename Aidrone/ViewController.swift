@@ -70,10 +70,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         test(la: 12.60348, lo: 74.9322)
         
         
-//        Map.delegate = self
 
         
         ref.child("boats").observe(.value) { (snapshot) in
+            self.Map.delegate = self
+
             for data in snapshot.children.allObjects as! [DataSnapshot]
             {
                 let a = data.value as? [String: AnyObject]
