@@ -50,6 +50,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        missionButton.layer.cornerRadius = 15
         
         ref = Database.database().reference()
         ref.child("persons").observe(.value) { (snapshot) in
@@ -186,7 +187,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         Map.setCenter(mn, animated: true)
     }
     
-//    func test2(la: Double, lo: Double)
+    //    func test2(la: Double, lo: Double)
 //    {
 //        let mn = CLLocationCoordinate2D.init(latitude: la, longitude: lo)
 //        let abcd = MKCircle.init(center: mn, radius: 20)

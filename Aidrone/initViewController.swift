@@ -14,9 +14,11 @@ class initViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        mission.layer.cornerRadius = 10
     }
     
-
+    @IBOutlet weak var mission: UIButton!
+    
     /*
     // MARK: - Navigation
 
