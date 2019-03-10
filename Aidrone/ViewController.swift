@@ -10,14 +10,35 @@ import UIKit
 import MapKit
 import FirebaseDatabase
 
-class Pin: NSObject, MKAnnotation
+//class Drone: NSObject, MKOverlay
+//{
+//    var coordinate: CLLocationCoordinate2D
+//
+//    var boundingMapRect: MKMapRect
+//
+//    init(coordinate: CLLocationCoordinate2D)
+//    {
+//        self.coordinate = coordinate
+//
+//        let abcd = MKMapPoint.init(coordinate)
+//        let efgh = MKMapSize.init(width: 1, height: 1)
+//        let vbn = MKMapRect.init(origin: abcd, size: efgh)
+//        self.boundingMapRect = vbn
+////        self.boundingMapRect.size = MKMapSize.init(width: 1, height: 1)
+////        self.boundingMapRect.origin = MKMapPoint.init(coordinate)
+//        super.init()
+//    }
+//}
+
+class Drone: NSObject, MKAnnotation
 {
     var coordinate: CLLocationCoordinate2D
-
+    
     init(coordinate: CLLocationCoordinate2D)
     {
         self.coordinate = coordinate
         super.init()
+
     }
 }
 
@@ -48,9 +69,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 let lati = a?["Latitude"] as! Double
                 let longi = a?["Longitude"] as! Double
                 let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
-                let pin = Pin(coordinate: CLLocationCoordinate2D(latitude: lati, longitude: longi))
-                self.Map.addAnnotation(pin)
+                let drone = Drone(coordinate: mn)
+                let abcd = self.mapView(self.Map, viewFor: drone)
+                self.Map.addAnnotation(drone)
+//                self.Map.addOverlay(drone)
                 self.Map.setCenter(mn, animated: true)
+//                self.test2(la: lati, lo: longi)
             }
         }
         
@@ -106,6 +130,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
         abcd.coordinate.longitude = lo
         annotations.append(abcd)
         Map.addAnnotation(abcd)
+//        Map.setCenter(mn, animated: true)
+    }
+    
+    func test2(la: Double, lo: Double)
+    {
+        let mn = CLLocationCoordinate2D.init(latitude: la, longitude: lo)
+        let abcd = MKCircle.init(center: mn, radius: 20)
+        Map.addOverlay(abcd)
         Map.setCenter(mn, animated: true)
     }
     
@@ -132,9 +164,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //        var abcd = mapView.dequeueReusableAnnotationView(withIdentifier: "boats")
         let abcd = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "boats")
         abcd.animatesDrop = true
+        abcd.image = UIImage(named: "dr")
+        abcd.tintColor = UIColor.blue
         return abcd
     }
-    
     
     
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
