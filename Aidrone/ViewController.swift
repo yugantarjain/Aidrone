@@ -10,7 +10,18 @@ import UIKit
 import MapKit
 import FirebaseDatabase
 
-class ViewController: UIViewController {
+class Pin: NSObject, MKAnnotation
+{
+    var coordinate: CLLocationCoordinate2D
+
+    init(coordinate: CLLocationCoordinate2D)
+    {
+        self.coordinate = coordinate
+        super.init()
+    }
+}
+
+class ViewController: UIViewController, MKMapViewDelegate {
     
     let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
     var annotations = [MKAnnotation]()
@@ -27,6 +38,19 @@ class ViewController: UIViewController {
                 let lati = a?["Latitude"] as! Double
                 let longi = a?["Longitude"] as! Double
                 self.test(la: lati, lo: longi)
+            }
+        }
+        
+        ref.child("drone").observe(.value) { (snapshot) in
+            for data in snapshot.children.allObjects as! [DataSnapshot]
+            {
+                let a = data.value as? [String: AnyObject]
+                let lati = a?["Latitude"] as! Double
+                let longi = a?["Longitude"] as! Double
+                let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
+                let pin = Pin(coordinate: CLLocationCoordinate2D(latitude: lati, longitude: longi))
+                self.Map.addAnnotation(pin)
+                self.Map.setCenter(mn, animated: true)
             }
         }
         
@@ -68,7 +92,7 @@ class ViewController: UIViewController {
         
 //        Map.addAnnotation(ann1)
 //        Map.addAnnotation(ann2)
-        Map.addAnnotations(annotations)
+//        Map.addAnnotations(annotations)
     }
     
     @IBOutlet weak var Map: MKMapView!
@@ -81,7 +105,65 @@ class ViewController: UIViewController {
         abcd.coordinate.latitude = la
         abcd.coordinate.longitude = lo
         annotations.append(abcd)
+        Map.addAnnotation(abcd)
         Map.setCenter(mn, animated: true)
     }
+    
+//    func test2(la: Double, lo: Double)
+//    {
+//        let mn = CLLocationCoordinate2D.init(latitude: la, longitude: lo)
+//        let abcd = MKMarkerAnnotationView.init()
+//        abcd.animatesWhenAdded = true
+//        abcd.tintColor = UIColor.blue
+////        abcd.coordinate.latitude = la
+////        abcd.coordinate.longitude = lo
+////        annotations.append(abcd)
+////        Map.addAnnotation(abcd?.annotation)
+////        Map.setCenter(mn, animated: true)
+//
+//
+//        let gh = MKPointAnnotation.init()
+//        gh.coordinate.latitude = la
+//        gh.coordinate.longitude = lo
+//
+//    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        var abcd = mapView.dequeueReusableAnnotationView(withIdentifier: "boats")
+        let abcd = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "boats")
+        abcd.animatesDrop = true
+        return abcd
+    }
+    
+    
+    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        // 1
+//        let identifier = "Capital"
+//
+//        // 2
+//        if annotation is Capital {
+//            // 3
+//            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+//
+//            if annotationView == nil {
+//                //4
+//                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//                annotationView!.canShowCallout = true
+//
+//                // 5
+//                let btn = UIButton(type: .detailDisclosure)
+//                annotationView!.rightCalloutAccessoryView = btn
+//            } else {
+//                // 6
+//                annotationView!.annotation = annotation
+//            }
+//
+//            return annotationView
+//        }
+//
+//        // 7
+//        return nil
+//    }
 }
 
