@@ -41,17 +41,41 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-        var ann1 = MKPointAnnotation.init()
+        
+        let ann1 = MKPointAnnotation.init()
         ann1.coordinate.latitude = 9
         ann1.coordinate.longitude = 26
-        annotations.append(ann1)
+//        annotations.append(ann1)
+        
+//        print(annotations)
 
         
-//        let ann2 = MKPointAnnotation.init()
-        ann1.coordinate.latitude = 11
-        ann1.coordinate.longitude = 24
+        let ann2 = MKPointAnnotation.init()
+        ann2.coordinate.latitude = 11
+        ann2.coordinate.longitude = 24
         
-        annotations.append(ann1)
+//        annotations.append(ann2)
+        
+        for a in annotations
+        {
+            print(a.coordinate)
+        }
+        print(annotations)
+        
+        
+        test(la: 9, lo: 26)
+        test(la: 11, lo: 24)
+        
+        for a in annotations
+        {
+            print(a.coordinate)
+        }
+        
+        
+        
+
+        
+        
         
 //        Map.addAnnotation(ann1)
 //        Map.addAnnotation(ann2)
@@ -80,6 +104,14 @@ class ViewController: UIViewController {
             Map.addAnnotation(a)
         }
         print(ann.coordinate)
+    }
+    
+    func test(la: Double, lo: Double)
+    {
+        let abcd = MKPointAnnotation.init()
+        abcd.coordinate.latitude = la
+        abcd.coordinate.longitude = lo
+        annotations.append(abcd)
     }
 }
 
