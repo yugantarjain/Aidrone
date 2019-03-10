@@ -80,11 +80,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
         }
         
         
-        
-        var abcd = MKDirections.Request.init()
-        let bnm = MKMapItem.init()
-        
-        
 //        let ann1 = MKPointAnnotation.init()
 //        ann1.coordinate.latitude = 9
 //        ann1.coordinate.longitude = 26
@@ -170,8 +165,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //        var abcd = mapView.dequeueReusableAnnotationView(withIdentifier: "boats")
         let abcd = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "boats")
         abcd.animatesDrop = true
-        abcd.image = UIImage(named: "dr")
-//        abcd.tintColor = UIColor.blue
+//        abcd.image = UIImage(named: "dr")
+        abcd.tintColor = UIColor.blue
+        abcd.pinTintColor = UIColor.blue
         return abcd
     }
     
