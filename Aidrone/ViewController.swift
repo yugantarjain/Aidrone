@@ -50,6 +50,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        Map.delegate = self
         
         ref = Database.database().reference()
         ref.child("persons").observe(.value) { (snapshot) in
@@ -77,6 +78,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //                self.test2(la: lati, lo: longi)
             }
         }
+        
+        
+        
+        var abcd = MKDirections.Request.init()
+        let bnm = MKMapItem.init()
         
         
 //        let ann1 = MKPointAnnotation.init()
@@ -165,7 +171,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let abcd = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "boats")
         abcd.animatesDrop = true
         abcd.image = UIImage(named: "dr")
-        abcd.tintColor = UIColor.blue
+//        abcd.tintColor = UIColor.blue
         return abcd
     }
     
