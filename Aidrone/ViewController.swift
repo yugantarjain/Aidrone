@@ -52,110 +52,121 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         ref = Database.database().reference()
-//        ref.child("persons").observe(.value) { (snapshot) in
-//            for data in snapshot.children.allObjects as! [DataSnapshot]
-//            {
-//                let a = data.value as? [String: AnyObject]
-//                let lati = a?["Latitude"] as! Double
-//                let longi = a?["Longitude"] as! Double
-//                self.test(la: lati, lo: longi)
-//            }
-//        }
-        
-        var drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.61027, longitude: 74.92911))
-
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.61215,lo: 74.92886)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.61119, lo: 74.92886)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.6947, lo: 74.92941)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.6088, lo: 74.9298)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.60679, lo: 74.93779)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.60348, lo: 74.9322)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60797, longitude: 74.93032))
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60441, longitude: 74.9319))
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60122, longitude: 74.93353))
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.60189, lo: 74.9328)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.6003, lo: 74.93383)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            self.test(la: 12.59808, lo: 74.93465)
-
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.59938, longitude: 74.93422))
-
+        ref.child("persons").observe(.value) { (snapshot) in
+            for data in snapshot.children.allObjects as! [DataSnapshot]
+            {
+                let a = data.value as? [String: AnyObject]
+                let lati = a?["Latitude"] as! Double
+                let longi = a?["Longitude"] as! Double
+                self.test(la: lati, lo: longi)
+            }
         }
         
-        
-        
-        
-        
-        
-
-
-        
-//        ref.child("boats").observe(.value) { (snapshot) in
-//            self.Map.delegate = self
+//        var drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.61027, longitude: 74.92911))
+//        self.Map.addAnnotation(drone)
+//        self.Map.setCenter(CLLocationCoordinate2D.init(latitude: 12.61027, longitude: 74.92911), animated: true)
 //
-//            for data in snapshot.children.allObjects as! [DataSnapshot]
-//            {
-//                let a = data.value as? [String: AnyObject]
-//                let lati = a?["Latitude"] as! Double
-//                let longi = a?["Longitude"] as! Double
-//                let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
-//                let drone = Drone(coordinate: mn)
-//                let abcd = self.mapView(self.Map, viewFor: drone)
-//                self.Map.addAnnotation(drone)
-////                self.Map.addOverlay(drone)
-//                self.Map.setCenter(mn, animated: true)
-////                self.test2(la: lati, lo: longi)
-//            }
+//
+//
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.61215,lo: 74.92886)
+//
 //        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.61119, lo: 74.92886)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.6947, lo: 74.92941)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.6088, lo: 74.9298)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.60679, lo: 74.93779)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.60348, lo: 74.9322)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60797, longitude: 74.93032))
+//            self.Map.addAnnotation(drone)
+//            self.Map.setCenter(CLLocationCoordinate2D.init(latitude: 12.60797, longitude: 74.93032), animated: true)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60441, longitude: 74.9319))
+//            self.Map.addAnnotation(drone)
+//            self.Map.setCenter(CLLocationCoordinate2D.init(latitude: 12.60441, longitude: 74.9319), animated: true)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60122, longitude: 74.93353))
+//            self.Map.addAnnotation(drone)
+//            self.Map.setCenter(CLLocationCoordinate2D.init(latitude: 12.60122, longitude: 74.93353), animated: true)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.60189, lo: 74.9328)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.6003, lo: 74.93383)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            self.test(la: 12.59808, lo: 74.93465)
+//
+//        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.59938, longitude: 74.93422))
+//            self.Map.addAnnotation(drone)
+//            self.Map.setCenter(CLLocationCoordinate2D.init(latitude: 12.59938, longitude: 74.93422), animated: true)
+//
+//        }
+//
+        
+        
+        
+        
+        
+
+
+        
+        ref.child("boats").observe(.value) { (snapshot) in
+            self.Map.delegate = self
+
+            for data in snapshot.children.allObjects as! [DataSnapshot]
+            {
+                let a = data.value as? [String: AnyObject]
+                let lati = a?["Latitude"] as! Double
+                let longi = a?["Longitude"] as! Double
+                let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
+                let drone = Drone(coordinate: mn)
+                let abcd = self.mapView(self.Map, viewFor: drone)
+//                self.Map.addOverlay(drone)
+                self.Map.setCenter(mn, animated: true)
+//                self.test2(la: lati, lo: longi)
+            }
+        }
         
  
     }
@@ -172,7 +183,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         annotations.append(abcd)
         Map.addAnnotation(abcd)
-//        Map.setCenter(mn, animated: true)
+        Map.setCenter(mn, animated: true)
     }
     
 //    func test2(la: Double, lo: Double)
