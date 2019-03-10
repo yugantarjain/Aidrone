@@ -62,73 +62,102 @@ class ViewController: UIViewController, MKMapViewDelegate {
 //            }
 //        }
         
-        test(la: 12.61215,lo: 74.92886)
-        test(la: 12.61119, lo: 74.92886)
-        test(la: 12.6947, lo: 74.92941)
-        test(la: 12.6088, lo: 74.9298)
-        test(la: 12.60679, lo: 74.93779)
-        test(la: 12.60348, lo: 74.9322)
-        
-        
+        var drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.61027, longitude: 74.92911))
 
         
-        ref.child("boats").observe(.value) { (snapshot) in
-            self.Map.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.61215,lo: 74.92886)
 
-            for data in snapshot.children.allObjects as! [DataSnapshot]
-            {
-                let a = data.value as? [String: AnyObject]
-                let lati = a?["Latitude"] as! Double
-                let longi = a?["Longitude"] as! Double
-                let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
-                let drone = Drone(coordinate: mn)
-                let abcd = self.mapView(self.Map, viewFor: drone)
-                self.Map.addAnnotation(drone)
-//                self.Map.addOverlay(drone)
-                self.Map.setCenter(mn, animated: true)
-//                self.test2(la: lati, lo: longi)
-            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.61119, lo: 74.92886)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.6947, lo: 74.92941)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.6088, lo: 74.9298)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.60679, lo: 74.93779)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.60348, lo: 74.9322)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60797, longitude: 74.93032))
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60441, longitude: 74.9319))
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.60122, longitude: 74.93353))
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.60189, lo: 74.9328)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.6003, lo: 74.93383)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            self.test(la: 12.59808, lo: 74.93465)
+
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+            // Code you want to be delayed
+            drone = Drone(coordinate: CLLocationCoordinate2D.init(latitude: 12.59938, longitude: 74.93422))
+
         }
         
         
-//        let ann1 = MKPointAnnotation.init()
-//        ann1.coordinate.latitude = 9
-//        ann1.coordinate.longitude = 26
-////        annotations.append(ann1)
-//
-////        print(annotations)
-//
-//
-//        let ann2 = MKPointAnnotation.init()
-//        ann2.coordinate.latitude = 11
-//        ann2.coordinate.longitude = 24
-//
-////        annotations.append(ann2)
-//
-//        for a in annotations
-//        {
-//            print(a.coordinate)
-//        }
-//        print(annotations)
-//
-//
-//        test(la: 9, lo: 26)
-//        test(la: 20, lo: 24)
-//
-//        for a in annotations
-//        {
-//            print(a.coordinate)
-//        }
+        
         
         
         
 
+
         
+//        ref.child("boats").observe(.value) { (snapshot) in
+//            self.Map.delegate = self
+//
+//            for data in snapshot.children.allObjects as! [DataSnapshot]
+//            {
+//                let a = data.value as? [String: AnyObject]
+//                let lati = a?["Latitude"] as! Double
+//                let longi = a?["Longitude"] as! Double
+//                let mn = CLLocationCoordinate2D.init(latitude: lati, longitude: longi)
+//                let drone = Drone(coordinate: mn)
+//                let abcd = self.mapView(self.Map, viewFor: drone)
+//                self.Map.addAnnotation(drone)
+////                self.Map.addOverlay(drone)
+//                self.Map.setCenter(mn, animated: true)
+////                self.test2(la: lati, lo: longi)
+//            }
+//        }
         
-        
-//        Map.addAnnotation(ann1)
-//        Map.addAnnotation(ann2)
-//        Map.addAnnotations(annotations)
+ 
     }
     
     @IBOutlet weak var Map: MKMapView!
