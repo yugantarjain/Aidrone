@@ -50,7 +50,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        missionButton.layer.cornerRadius = 15
         
         ref = Database.database().reference()
         ref.child("persons").observe(.value) { (snapshot) in
